@@ -1,14 +1,22 @@
 Palavra: exemplo
 
-Arquivo: file4.txt
-Ocorrências: 1
-Linhas: [5]
+Arquivo: file5.txt
+Ocorrências: 4
+Linhas: [5, 27, 31, 35]
 
-Arquivo: file1.txt
-Ocorrências: 1
-Linhas: [5]
+Arquivo: file4.txt
+Ocorrências: 3
+Linhas: [3, 5, 9]
 
 Arquivo: file2.txt
+Ocorrências: 3
+Linhas: [1, 2, 5]
+
+Arquivo: file1.txt
+Ocorrências: 3
+Linhas: [1, 2, 5]
+
+Arquivo: file3.txt
 Ocorrências: 1
-Linhas: [5]
+Linhas: [1]
 

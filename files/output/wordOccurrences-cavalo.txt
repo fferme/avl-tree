@@ -1,0 +1,22 @@
+Palavra: cavalo
+
+Arquivo: file5.txt
+Ocorrências: 8
+Linhas: [1, 3, 9, 15, 21, 23, 31, 33]
+
+Arquivo: file4.txt
+Ocorrências: 4
+Linhas: [3, 5, 7, 9]
+
+Arquivo: file2.txt
+Ocorrências: 3
+Linhas: [2, 4, 5]
+
+Arquivo: file1.txt
+Ocorrências: 4
+Linhas: [1, 2, 4, 5]
+
+Arquivo: file3.txt
+Ocorrências: 2
+Linhas: [2, 2]
+

@@ -12,16 +12,16 @@ public class Main {
         AVLTree avlTree = new AVLTree();
 
         // Diretório contendo os arquivos a serem processados
-        String directoryPath = "C:\\Users\\Ferme\\Documents\\Code-Projects\\avl-tree\\files\\input\\";
-        try {
-            // Leitura dos arquivos no diretório
-            File directory = new File(directoryPath);
-            File[] files = directory.listFiles();
+        String directoryPath = "./files/input/";
 
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isFile()) {
-                        BufferedReader reader = new BufferedReader(new FileReader(file));
+        // Leitura dos arquivos no diretório
+        File directory = new File(directoryPath);
+        File[] files = directory.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    try (BufferedReader reader = new BufferedReader(new FileReader(file));) {
                         String line;
                         int lineNumber = 1;
 
@@ -40,16 +40,15 @@ public class Main {
                             }
                             lineNumber++;
                         }
-                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         // Exibição das ocorrências da palavra
-        String searchWord = "exemplo";
+        String searchWord = "cavalo";
         avlTree.displayOccurrences(searchWord);
     }
 }

@@ -5,15 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Classe para representar um nó da árvore AVL
 public class AVLNode {
-    String word;                       // Palavra
-    Map<File, List<Integer>> occurrences;  // Mapeamento de arquivos e linhas onde a palavra ocorre
-    AVLNode left;                      // Filho esquerdo
-    AVLNode right;                     // Filho direito
-    int height;                        // Altura do nó
+    String word;
+    Map<File, List<Integer>> occurrences;
+    AVLNode left;
+    AVLNode right;
+    int height;
 
-    // Construtor
     public AVLNode(String word, File file, int lineNumber) {
         this.word = word;
         this.occurrences = new HashMap<>();

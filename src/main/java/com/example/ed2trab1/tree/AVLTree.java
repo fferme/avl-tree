@@ -9,31 +9,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-
 public class AVLTree {
     private AVLNode root;
     Logger logger = Logger.getLogger(AVLTree.class.getName());
 
-    // Método para obter a altura de um nó
+    // Obtém a altura de um nó
     private int height(AVLNode node) {
         if (node == null)
             return 0;
         return node.height;
     }
 
-    // Método para obter o fator de balanceamento de um nó
+    // Obtém o fator de balanceamento de um nó
     private int getBalance(AVLNode node) {
         if (node == null)
             return 0;
         return height(node.left) - height(node.right);
     }
 
-    // Método para atualizar a altura de um nó
+    // Atualiza a altura de um nó
     private void updateHeight(AVLNode node) {
         node.height = Math.max(height(node.left), height(node.right)) + 1;
     }
 
-    // Método para realizar uma rotação simples à esquerda
+    // Realiza uma rotação simples à esquerda
     private AVLNode rotateLeft(AVLNode node) {
         AVLNode newRoot = node.right;
         AVLNode leftSubtree = newRoot.left;
@@ -47,7 +46,7 @@ public class AVLTree {
         return newRoot;
     }
 
-    // Método para realizar uma rotação simples à direita
+    // Realiza uma rotação simples à direita
     private AVLNode rotateRight(AVLNode node) {
         AVLNode newRoot = node.left;
         AVLNode rightSubtree = newRoot.right;
@@ -61,19 +60,20 @@ public class AVLTree {
         return newRoot;
     }
 
-    // Método para balancear a árvore após a inserção de um nó
+    // Balanceia a árvore após a inserção de um nó
     private AVLNode balanceNode(AVLNode node, String word, File file, int lineNumber) {
-        if (node == null)
+        if (node == null) {
             return new AVLNode(word, file, lineNumber);
+        }
 
-        // Inserção na subárvore esquerda
-        if (word.compareTo(node.word) < 0)
+        if (word.compareTo(node.word) < 0) {
+            // Inserção na subárvore esquerda
             node.left = balanceNode(node.left, word, file, lineNumber);
-        // Inserção na subárvore direita
-        else if (word.compareTo(node.word) > 0)
+        } else if (word.compareTo(node.word) > 0) {
+            // Inserção na subárvore direita
             node.right = balanceNode(node.right, word, file, lineNumber);
-        // A palavra já existe no nó
-        else {
+        } else {
+            // Caso a palavra já existe no nó
             List<Integer> lines = node.occurrences.getOrDefault(file, new ArrayList<>());
             lines.add(lineNumber);
             node.occurrences.put(file, lines);
@@ -81,16 +81,17 @@ public class AVLTree {
         }
 
         updateHeight(node);
-
         int balance = getBalance(node);
 
         // Caso de rotação à esquerda
-        if (balance > 1 && word.compareTo(node.left.word) < 0)
+        if (balance > 1 && word.compareTo(node.left.word) < 0) {
             return rotateRight(node);
+        }
 
         // Caso de rotação à direita
-        if (balance < -1 && word.compareTo(node.right.word) > 0)
+        if (balance < -1 && word.compareTo(node.right.word) > 0) {
             return rotateLeft(node);
+        }
 
         // Caso de rotação dupla à esquerda
         if (balance > 1 && word.compareTo(node.left.word) > 0) {
@@ -107,25 +108,17 @@ public class AVLTree {
         return node;
     }
 
-    // Método público para inserir uma palavra na árvore
-    public void insert(String word, File file, int lineNumber) {
-        root = balanceNode(root, word, file, lineNumber);
-    }
-
     // Método para realizar uma busca na árvore
     private AVLNode searchNode(AVLNode node, String word) {
-        if (node == null || node.word.equals(word))
+        if (node == null || node.word.equals(word)) {
             return node;
+        }
 
-        if (word.compareTo(node.word) < 0)
+        if (word.compareTo(node.word) < 0) {
             return searchNode(node.left, word);
+        }
 
         return searchNode(node.right, word);
-    }
-
-    // Método público para buscar uma palavra na árvore
-    public AVLNode search(String word) {
-        return searchNode(root, word);
     }
 
     // Método para exibir todas as ocorrências de uma palavra em um arquivo
@@ -157,8 +150,18 @@ public class AVLTree {
         }
     }
 
+    // Método público para buscar uma palavra na árvore
+    public AVLNode search(String word) {
+        return searchNode(root, word);
+    }
+
     // Método público para exibir todas as ocorrências da palavra
     public void displayOccurrences(String searchWord) {
         displayOccurrences(root, searchWord);
+    }
+
+    // Método público para inserir uma palavra na árvore
+    public void insert(String word, File file, int lineNumber) {
+        root = balanceNode(root, word, file, lineNumber);
     }
 }
