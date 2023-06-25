@@ -1,0 +1,14 @@
+Palavra: exemplo
+
+Arquivo: file4.txt
+Ocorrências: 1
+Linhas: [5]
+
+Arquivo: file1.txt
+Ocorrências: 1
+Linhas: [5]
+
+Arquivo: file2.txt
+Ocorrências: 1
+Linhas: [5]
+
