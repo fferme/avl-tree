@@ -1,6 +1,12 @@
 # Árvore AVL de Busca de Palavras em Arquivos
 
-Este é um projeto Java que implementa uma árvore AVL para busca de palavras em arquivos. O programa lê um conjunto de arquivos grandes em um diretório especificado e cria uma árvore AVL, onde cada nó contém uma palavra encontrada nos arquivos, juntamente com os arquivos e as linhas onde a palavra ocorre. Projeto feito como trabalho para disciplina de Estrutura de Dados II na faculdade UERJ-ZO.
+Este é um projeto Java desenvolvido como parte de um trabalho para a disciplina de Estrutura de Dados II na faculdade UERJ-ZO. O objetivo principal é implementar uma árvore AVL para buscar palavras em arquivos.
+
+O programa é capaz de ler um conjunto de arquivos grandes em um diretório específico e construir uma árvore AVL. Cada nó da árvore contém uma palavra encontrada nos arquivos, juntamente com as informações sobre os arquivos e as linhas onde a palavra ocorre.
+
+A árvore AVL é uma estrutura de dados balanceada que permite uma busca eficiente. Ela mantém a altura da árvore equilibrada através de rotações, o que garante um tempo de busca e inserção de palavras otimizado.
+
+Esse projeto utiliza os princípios de estrutura de dados e implementação de árvores AVL em Java para realizar a busca de palavras nos arquivos. Essa implementação pode ser útil em cenários onde é necessário pesquisar informações específicas em grandes conjuntos de dados textuais.
 
 ## Funcionalidades
 
